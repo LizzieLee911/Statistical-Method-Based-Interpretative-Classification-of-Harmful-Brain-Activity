@@ -190,8 +190,8 @@ dist/
 *.index
 *.data-*
 checkpoint
-TRAIN_FROM_EEG_SPE_CNN.ipynb
-TRAIN_LR_SAMPLER_EEG.ipynb
+notebooks/TRAIN_FROM_EEG_SPE_CNN.ipynb
+notebooks/TRAIN_LR_SAMPLER_EEG.ipynb
 # 忽略日志和输出文件
 logs/
 output/
