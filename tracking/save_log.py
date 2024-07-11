@@ -35,13 +35,6 @@ def log_training_results(log_path, model_name, params, results, random_state, no
         updated_df = pd.concat([df, new_record_df], ignore_index=True)
         updated_df.to_csv(log_path, index=False)
 
-#log_training_results(log_path = LOG_PATH , 
-# model_name = "One_Layer_Multinomial_LR", 
-# params = {'epoch': 1000, 'lr': 0.001, 'batch_size': 32}, 
-# results = {'val_loss': 1.2210, 'train_loss': 1.2012, 'F1': None, 'accuracy': None},
-# notes:"stop trying, 10SAMPLER for bad boys like 50s-eeg is not enough")
-
-# 文件名: log_feature_file.py
 
 def log_feature_file(log_path, file_name, file_type, note, processed_sampler_data, PROCESSED_DATA_DIR):
     """

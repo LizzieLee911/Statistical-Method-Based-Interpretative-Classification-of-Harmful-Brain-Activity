@@ -15,7 +15,7 @@ from catboost import CatBoostClassifier, Pool
 
 def logistic_regression_analysis(X_train, y_train, X_test, y_test, 
                                  penalty='l1', C=1000, solver='saga', max_iter=1000, 
-                                 class_weight='balanced', tol=1e-4, verbose=1, n_jobs=-1,
+                                 class_weight='balanced', tol=1e-4, verbose=-1, n_jobs=-1,
                                  plot_roc=False):
     """
     Train and evaluate a logistic regression model.

@@ -10,8 +10,7 @@ SUBMISSION_DIR = os.path.join(HOME_DIR, "submissions")
 
 OOF_DIR = os.path.join(HOME_DIR, "oof")
 CHECKPOINT_DIR = os.path.join(HOME_DIR, "models")
-
 LOG_PATH = os.path.join(HOME_DIR, "tracking/training_log.csv")
-#######
+
 
 

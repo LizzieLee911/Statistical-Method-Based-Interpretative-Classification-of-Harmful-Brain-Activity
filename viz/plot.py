@@ -309,7 +309,7 @@ def plot_multiclass_roc_auc(y_test, y_pred_proba, class_names):
     roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
 
     # Plot ROC curves
-    plt.figure(figsize=(8, 6), dpi=300)
+    plt.figure(figsize=(8, 6), dpi=100)
     plt.plot(fpr["macro"], tpr["macro"], color='navy', linestyle=':', linewidth=2, label=f'Macro-average ROC curve (AUC = {roc_auc["macro"]:.4f})')
     plt.plot(fpr["micro"], tpr["micro"], color='deeppink', linestyle=':', linewidth=2, label=f'Micro-average ROC curve (AUC = {roc_auc["micro"]:.4f})')
     for i in range(n_classes):
@@ -358,7 +358,7 @@ def plot_multiclass_pr_auc(y_test, y_pred_proba, class_names):
     pr_auc["micro"] = average_precision_score(y_test_binarized, y_pred_proba, average="micro")
 
     # Plot PR curves
-    plt.figure(figsize=(8, 6), dpi=300)
+    plt.figure(figsize=(8, 6), dpi=100)
     plt.step(recall['macro'], precision['macro'], where='post', color='b', alpha=0.2, label=f'Macro-average PR curve (AUC = {pr_auc["macro"]:.4f})')
     plt.step(recall['micro'], precision['micro'], where='post', color='r', alpha=0.2, label=f'Micro-average PR curve (AUC = {pr_auc["micro"]:.4f})')
     for i in range(n_classes):

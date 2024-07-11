@@ -23,19 +23,6 @@ def standardize_spe_z_score(processed_data):
     std = processed_data.std()
     return (processed_data - mean) / (std + 1e-5)
 
-
-def SAMPLERrep(X,pers=[5,15,25,35,45,55,65,75,85,95]):
-    '''Return SAMPLER from a 2D array'''
-    SAMPLER_rep=np.ravel(np.percentile(X,pers,axis=0))
-    
-    return SAMPLER_rep
-
-# def SAMPLERrep_ver2(X,pers=[5,15,25,35,45,55,65,75,85,95]):
-#     '''Return SAMPLER from a 2D array'''
-#     SAMPLER_rep=np.percentile(X,pers,axis=0)
-    
-#     return SAMPLER_rep
-
 def SAMPLERrep_ver2(X, axis=0, pers=[5,15,25,35,45,55,65,75,85,95]):
     '''Return SAMPLER from a 2D array, ignoring NaN values, be careful of the output shape it'll freaking Transpose'''
     # 如果X全是NaN值，则用0填充
@@ -43,7 +30,6 @@ def SAMPLERrep_ver2(X, axis=0, pers=[5,15,25,35,45,55,65,75,85,95]):
         X = np.nan_to_num(X, nan=0.0)
     SAMPLER_rep = np.nanpercentile(X, pers, axis)
     return SAMPLER_rep
-
 
 
 def standardize_sample(sample,axis=0):
