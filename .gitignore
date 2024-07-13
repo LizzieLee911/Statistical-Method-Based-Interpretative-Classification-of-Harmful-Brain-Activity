@@ -195,3 +195,5 @@ notebooks/TRAIN_LR_SAMPLER_EEG.ipynb
 # 忽略日志和输出文件
 logs/
 output/
+!Read_me_image01.jpg
+!Read_me_image02.jpg
