@@ -1,6 +1,6 @@
 # Statistical Method-Based Interpretative Classification of Harmful Brain Activity
 
-**I extend my gratitude to the authors of the SAMPLER method ([Mukashyaka, Sheridan, Foroughi Pour, & Chuang, 2024](#ref12)). Their original research focused on analyzing breast cancer whole slide images (WSI), and their statistical and distribution-based encoding techniques provided significant inspiration. This led me to adapt and apply similar principles to the processing of time-series data. By employing the cumulative distribution function (CDF) sampling method,  can effectively address the unpredictability of pathological feature occurrences and handle noise robustly. The attention map formula mentioned above is also adapted from the SAMPLER method based on a weighted sum of feature likelihoods.**
+**I extend my gratitude to the authors of the SAMPLER method ([Mukashyaka, Sheridan, Foroughi Pour, & Chuang, 2024](#ref12)). Their original research focused on analyzing breast cancer whole slide images (WSI), and their statistical and distribution-based encoding techniques provided significant inspiration. This led me to adapt and apply similar principles to the processing of time-series data. By employing the cumulative distribution function (CDF) sampling method, can effectively address the unpredictability of pathological feature occurrences and handle noise robustly. The attention map formula mentioned above is also adapted from the SAMPLER method based on a weighted sum of feature likelihoods.**
 
 ## Table of Contents
 - [Project Overview](#project-overview)
