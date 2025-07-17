@@ -1,5 +1,7 @@
 # Statistical Method-Based Interpretative Classification of Harmful Brain Activity
 
+**I extend my gratitude to the authors of the SAMPLER method ([Mukashyaka, Sheridan, Foroughi Pour, & Chuang, 2024](#ref12)). Their original research focused on analyzing breast cancer whole slide images (WSI), and their statistical and distribution-based encoding techniques provided significant inspiration. This led me to adapt and apply similar principles to the processing of time-series data. By employing the cumulative distribution function (CDF) sampling method, can effectively address the unpredictability of pathological feature occurrences and handle noise robustly. The attention map formula mentioned above is also adapted from the SAMPLER method based on a weighted sum of feature likelihoods.**
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Business Understanding](#business-understanding)
@@ -15,7 +17,7 @@ This project utilizes real-world electroencephalography (EEG) data provided by H
 
 
 ## Business Understanding
-Deep learning has shown significant advancements in medical image and time series analysis. However, the lack of interpretability [(Hatherley, Sparrow, & Howard, 2022)](#ref3), patients' mistrust of AI [(Tyson, Pasquini, Spencer, & Funk, 2023)](#ref4), and the expensive computational resources [(Sarvamangala & Kulkarni, 2022)](#ref5) required for deep learning remain challenges. This project constructed a statistical unsupervised model that addresses these issues by reducing computational demands while extracting segments with pathological features and providing more interpretable results with a statistical approach, which enhances patient confidence in their results and supports doctors in making more accurate diagnoses.
+Deep learning has shown significant advancements in medical image and time series analysis. However, the lack of interpretability [(Hatherley, Sparrow, & Howard, 2022)](#ref3), patients' mistrust of AI [(Tyson, Pasquini, Spencer, & Funk, 2023)](#ref4), and the expensive computational resources [(Sarvamangala & Kulkarni, 2022)](#ref5) required for deep learning remain challenges. This project constructed a model that addresses these issues by replacing deep-learning procedures with statistical approaches, reducing computational demands while extracting segments with pathological features and providing more interpretable results, which enhances patient confidence in their results and supports doctors in making more accurate diagnoses.
 
 ## Data Understanding
 The dataset comprises 17,089 EEG data segments of varying lengths. The official dataset includes 10-minute reference spectrograms, annotated by experts, indicating one or more overlapping 50-second samples for each EEG segment, classified into six categories: seizure (SZ), generalized periodic discharges (GPD), lateralized periodic discharges (LPD), lateralized rhythmic delta activity (LRDA), generalized rhythmic delta activity (GRDA), or “other”. Each spectrogram may contain multiple EEG data segments.
@@ -26,7 +28,6 @@ Since the classification is performed on EEG data, and the provided spectrograms
 
 To capture representative EEG patterns([Hirsch et al., 2021](#ref2);  [Georgieva, Milanova, & Kasabov, 2014](#ref7); [Atkinson, 2010](#ref8)), which typically occur in the LL, RL, LP, RP, and midline areas of the brain, the samples were subjected to two types of montage [(Choi, Co, & Akireddy, 2020)](#ref9) (transverse bipolar montage and longitudinal bipolar montage). Inspired by Multi-scale Tiling in Multiple Instance Learning (MIL) ([Ilse, Tomczak, & Welling, 2018](#ref10); [D'Amato, Szostak, & Torben-Nielsen, 2022](#ref11)), during the Short-Time Fourier Transform (STFT) phase of converting EEG signals to spectrograms, we applied multiscale windowing (data points = 128, 256, 512) to the EEG signals of different montages. Using a constant length of the windowed signal of 512, each EEG sample was transformed into a spectrogram, and features were encoded based on feature distributions ([Mukashyaka, Sheridan, Foroughi Pour, & Chuang, 2024](#ref12)).
 
-We extend our gratitude to the authors of the SAMPLER method ([Mukashyaka, Sheridan, Foroughi Pour, & Chuang, 2024](#ref12)). Their original research focused on analyzing breast cancer whole slide images (WSI), and their statistical and distribution-based encoding techniques provided significant inspiration. This led us to adapt and apply similar principles to the processing of time-series data. By employing the cumulative distribution function (CDF) sampling method, we can effectively address the unpredictability of pathological feature occurrences and handle noise robustly. The attention map formula mentioned mentioned is also derived from the SAMPLER method.
 
 ## Modeling and Evaluation
 
