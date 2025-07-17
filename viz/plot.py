@@ -10,7 +10,41 @@ from sklearn.metrics import roc_auc_score, roc_curve,auc,precision_recall_curve,
 from sklearn.preprocessing import label_binarize
 import torch
 from sklearn.metrics import roc_curve, auc, roc_auc_score
+import math
 
+
+def plot_boxplot_and_bar(df_nan,num_cols,cat_cols,target = "Personality"):
+    categories = sorted(df_nan[target].unique())
+    
+    palette = sns.color_palette("Set2", len(categories))
+    palette_dict = dict(zip(categories, palette))
+    
+    fig, axes = plt.subplots(math.ceil(len(num_cols)/3), 3, figsize=(10,3*math.ceil(len(num_cols)/3)))
+    axes = axes.flatten()
+
+    for i, col in enumerate(num_cols):
+        sns.boxplot(x=target, y=col, data=df_nan, ax=axes[i],order=categories, palette=palette_dict)
+        axes[i].set_title(f"{col} by {target}")
+    plt.tight_layout()
+    plt.show()
+
+    fig, axes = plt.subplots(math.ceil(len(cat_cols)/3), 3, figsize=(10, 3 * math.ceil(len(cat_cols)/3)))
+    axes = axes.flatten()
+
+    for i, col in enumerate(cat_cols):
+        x_order = sorted(df_nan[col].dropna().unique())  # 指定 x 轴顺序
+        sns.countplot(
+            x=col, hue=target, data=df_nan, ax=axes[i],
+            order=x_order,                      # 固定 x 轴顺序
+            hue_order=categories,               # 固定 hue 顺序
+            palette=palette_dict                # 固定颜色
+        )
+        axes[i].set_title(f"{col} by {target}")
+        axes[i].tick_params(axis='x', rotation=30) 
+
+    plt.tight_layout()
+    plt.show()
+    
 def plot_pdf(data, bins='auto', title='Probability Density Function', xlabel='Value', ylabel='Density'):
     """
     Plots the Probability Density Function (PDF) of the given data.
